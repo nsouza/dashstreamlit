@@ -1,0 +1,39 @@
+# Ambiente virtual
+.venv/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+
+# Configurações do VS Code
+.vscode/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de dados (caso não queira versionar todos)
+*.csv
+*.json
+*.xlsx
+
+# Arquivos de notebooks Jupyter (se usar)
+*.ipynb
+
+# Arquivos gerados por Plotly (se salvar gráficos)
+*.html
+*.png
+*.svg
+
+# Streamlit
+.streamlit/
+
+# Arquivos de pacotes
+*.egg-info/
+dist/
+build/
