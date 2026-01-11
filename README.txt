@@ -22,3 +22,8 @@ git push -u origin main
 
 #Para atualizar projeto apos criar ou excluir arquivos
 git status
+git add .
+git commit -m "Descrição das atualizações feitas"
+git push origin main
+
+
