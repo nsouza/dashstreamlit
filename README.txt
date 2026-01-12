@@ -1,6 +1,7 @@
 #Instalação do ambiente virtual 
 python -m venv .venv
 source ./venv/bin/activate
+env\Scripts\activate
 
 
 #Bibliotecas instaladas
