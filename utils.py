@@ -1,4 +1,5 @@
 from dataset import df
+import pandas as pd
 
 def format_number(value,  prefix = ''):
     for unit in ['', 'mil']:
@@ -9,11 +10,20 @@ def format_number(value,  prefix = ''):
 
 
 
-
+# 1- Dataframe Receitas por estado
 df_rec_estado = df.groupby('Local da compra')[['Preço']].sum()
 df_rec_estado = df.drop_duplicates(subset='Local da compra')[['Local da compra', 'lat', 'lon']] \
     .merge(df_rec_estado, left_on='Local da compra', right_index=True) \
     .sort_values('Preço', ascending=False)
+    
+# 2 - Dataframa Receitas Mensal
+df_rec_mensal = df.set_index('Data da Compra').groupby(pd.Grouper(freq='M'))['Preço'].sum().reset_index()
+df_rec_mensal['Ano'] = df_rec_mensal['Data da Compra'].dt.year
+df_rec_mensal['Mês'] = df_rec_mensal['Data da Compra'].dt.month_name()
+
+#print(df_rec_mensal)
+
+
 
 
 
