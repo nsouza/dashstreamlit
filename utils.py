@@ -23,7 +23,14 @@ df_rec_mensal['Mês'] = df_rec_mensal['Data da Compra'].dt.month_name()
 
 #print(df_rec_mensal)
 
+# 3 - Dataframe receita por categoria
+df_rec_categoria = (
+    df.groupby('Categoria do Produto')[['Preço']]
+    .sum()
+    .sort_values('Preço', ascending=False)
+)
 
 
+#print(df_rec_categoria.head(5))
 
 
