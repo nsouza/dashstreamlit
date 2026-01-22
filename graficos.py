@@ -1,5 +1,5 @@
 import plotly.express as px
-from utils import df_rec_estado, df_rec_mensal,df_rec_categoria 
+from utils import df_rec_estado, df_rec_mensal,df_rec_categoria, df_vendedores
 
 grafico_map_estado = px.scatter_geo(
     df_rec_estado,
@@ -39,3 +39,12 @@ grafico_rec_categoria = px.bar(
     text_auto=True,
     title='Top 10 Categorias com Maior Receitas'
 )
+
+grafico_rec_vendedores = px.bar(
+    df_vendedores[['sum']].sort_values('sum', ascending=False).head(10).index,
+    x='sum',
+    y=df_vendedores[['sum']].sort_values('sum', ascending=False).head(10).index,
+    text_auto=True,
+    title='Top 10 Vendedores com Maior Receita'
+)
+

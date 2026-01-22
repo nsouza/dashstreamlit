@@ -30,7 +30,12 @@ df_rec_categoria = (
     .sort_values('Preço', ascending=False)
 )
 
+# 4 - Dataframe vendedores
+df_vendedores = (
+    pd.DataFrame(df.groupby('Vendedor')['Preço']
+    .agg(['sum', 'count']))
+)
 
-#print(df_rec_categoria.head(5))
+print(df_vendedores)
 
 
