@@ -28,3 +28,6 @@ git commit -m "Descrição das atualizações feitas"
 git push origin main
 
 
+#Atualizar  o projeto entre um computador e outro suando a nuvem
+Git branch (para saber a branch)
+git pull (para baixar as atualizações)
