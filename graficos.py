@@ -41,7 +41,7 @@ grafico_rec_categoria = px.bar(
 )
 
 grafico_rec_vendedores = px.bar(
-    df_vendedores[['sum']].sort_values('sum', ascending=False).head(10).index,
+    df_vendedores[['sum']].sort_values('sum', ascending=False).head(10),
     x='sum',
     y=df_vendedores[['sum']].sort_values('sum', ascending=False).head(10).index,
     text_auto=True,
