@@ -48,3 +48,11 @@ grafico_rec_vendedores = px.bar(
     title='Top 10 Vendedores com Maior Receita'
 )
 
+grafico_vendas_vendedores = px.bar(
+    df_vendedores[['count']].sort_values('count', ascending=False).head(10),
+    x='count',
+    y=df_vendedores[['count']].sort_values('count', ascending=False).head(10).index,
+    text_auto=True,
+    title='Top 10 Vendedores com Maior Número de Vendas'
+)
+

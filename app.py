@@ -6,11 +6,23 @@ from graficos import (grafico_map_estado,
                       grafico_rec_mensal,
                       grafico_rec_estado, 
                       grafico_rec_categoria,
-                      grafico_rec_vendedores
+                      grafico_rec_vendedores,
+                      grafico_vendas_vendedores
                       )
 
 st.set_page_config(layout='wide')
 st.title("Dashboard de Vendas :shopping_trolley:")
+
+st.sidebar.header('Filtros de vendedores')
+filtro_vendedor = st.sidebar.multiselect(
+    'Vendedores',
+    df['Vendedor'].unique(),
+)
+
+if filtro_vendedor:
+    df = df[df['Vendedor'].isin(filtro_vendedor)]
+
+
 
 aba1, aba2, aba3 = st.tabs(['Dataset','Receitas', 'vendedores'])
 with aba1:
@@ -30,6 +42,9 @@ with aba3:
     with coluna1:
         st.metric('Quantidade de Vendedores', format_number(df['Vendedor'].nunique()))   
         st.plotly_chart(grafico_rec_vendedores, use_container_width=True)
+    with coluna2:
+        st.metric('Ticket Médio por Venda', format_number(df['Preço'].mean(), 'R$ '))
+        st.plotly_chart(grafico_vendas_vendedores, use_container_width=True)
                
 
     
