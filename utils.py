@@ -1,5 +1,7 @@
 from dataset import df
 import pandas as pd
+import streamlit as st
+import time
 
 def format_number(value,  prefix = ''):
     for unit in ['', 'mil']:
@@ -36,6 +38,18 @@ df_vendedores = (
     .agg(['sum', 'count']))
 )
 
-print(df_vendedores)
+#Função para converter arquivo csv
+@st.cache_data
+def convert_csv(df):
+    return df.to_csv(index=False).encode('utf-8')
+
+def mensagem_sucesso():
+    sucess = st.success(
+        'Arquivo baixado com sucesso! :white_check_mark:',
+        icon=':tada:'
+    )
+    time.sleep(3)
+    sucess.empty()
+  
 
 
